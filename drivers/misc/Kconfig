@@ -93,6 +93,10 @@ config IBMVMC
 	  To compile this driver as a module, choose M here: the
 	  module will be called ibmvmc.
 
+config TTY0TTY
+	tristate "Tty0tty null modem emulator"
+	depends on RUST
+
 config PHANTOM
 	tristate "Sensable PHANToM (PCI)"
 	depends on PCI

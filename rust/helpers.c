@@ -11,6 +11,7 @@
 #include <linux/mutex.h>
 #include <linux/platform_device.h>
 #include <linux/security.h>
+#include <linux/tty.h>
 #include <asm/io.h>
 
 __noreturn void rust_helper_BUG(void)
@@ -277,6 +278,12 @@ void *rust_helper_dev_get_drvdata(struct device *dev)
 	return dev_get_drvdata(dev);
 }
 EXPORT_SYMBOL_GPL(rust_helper_dev_get_drvdata);
+
+struct tty_driver *rust_helper_tty_alloc_driver(unsigned int lines, unsigned long flags)
+{
+	return tty_alloc_driver(lines, flags);
+}
+EXPORT_SYMBOL_GPL(rust_helper_tty_alloc_driver);
 
 /* We use bindgen's --size_t-is-usize option to bind the C size_t type
  * as the Rust usize type, so we can use it in contexts where Rust
