@@ -12,6 +12,7 @@
 #include <linux/platform_device.h>
 #include <linux/security.h>
 #include <linux/tty.h>
+#include <linux/tty_driver.h>
 #include <asm/io.h>
 
 __noreturn void rust_helper_BUG(void)

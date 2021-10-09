@@ -6,7 +6,7 @@
 #![feature(allocator_api, global_asm)]
 
 use kernel::prelude::*;
-use kernel::{bindings, c_types, tty::tty_driver};
+use kernel::{bindings, c_types, tty};
 
 module! {
     type: Tty0tty,
@@ -33,7 +33,7 @@ impl KernelModule for Tty0tty {
         pr_info!("Rust minimal sample (init)\n");
         pr_info!("Am I built-in? {}\n", !cfg!(MODULE));
 
-        let tty = tty_driver::Registration::new();
+        let tty = tty::Registration::new();
         tty.register(pairs.read() * 2, 0);
 
         Ok(Tty0tty {

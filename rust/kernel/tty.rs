@@ -2,7 +2,7 @@
 
 //! Tty management interfaces.
 //!
-//! C header: [`include/linux/tty_driver.h`](../../../../include/linux/tty_driver.h)
+//! C header: [`include/linux/tty.h`](../../../../include/linux/tty.h)
 
 use crate::{bindings, c_types, Error, Result};
 use core::{pin::Pin, ptr};
@@ -35,6 +35,8 @@ impl TtyStruct {
     }
 }
 
+
+
 pub struct Registration {
     registered: bool,
     driver: *mut bindings::tty_driver,
@@ -57,6 +59,8 @@ impl Registration {
         if this.registered {
             return Err(Error::EINVAL);
         }
+
+        
 
         let ret = unsafe { rust_helper_tty_alloc_driver(lines, flags.into()) };
         this.driver = ret;
