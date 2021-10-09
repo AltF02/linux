@@ -54,7 +54,6 @@ pub mod power;
 pub mod security;
 pub mod str;
 pub mod task;
-pub mod traits;
 
 pub mod linked_list;
 mod raw_list;
@@ -68,6 +67,8 @@ pub mod prelude;
 pub mod print;
 pub mod random;
 mod static_assert;
+#[doc(hidden)]
+pub mod std_vendor;
 pub mod sync;
 
 #[cfg(any(CONFIG_SYSCTL, doc))]
