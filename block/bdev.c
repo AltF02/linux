@@ -490,6 +490,7 @@ struct block_device *bdev_alloc(struct gendisk *disk, u8 partno)
 	bdev = I_BDEV(inode);
 	mutex_init(&bdev->bd_fsfreeze_mutex);
 	spin_lock_init(&bdev->bd_size_lock);
+	bdev->bd_disk = disk;
 	bdev->bd_partno = partno;
 	bdev->bd_inode = inode;
 	bdev->bd_stats = alloc_percpu(struct disk_stats);
@@ -497,7 +498,6 @@ struct block_device *bdev_alloc(struct gendisk *disk, u8 partno)
 		iput(inode);
 		return NULL;
 	}
-	bdev->bd_disk = disk;
 	return bdev;
 }
 

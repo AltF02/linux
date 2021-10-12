@@ -38,6 +38,7 @@ struct section {
 	Elf_Data *data;
 	char *name;
 	int idx;
+	unsigned int len;
 	bool changed, text, rodata, noinstr;
 };
 

@@ -12,7 +12,7 @@
 #include "unicode.h"
 #include "vfs_cache.h"
 
-#define KSMBD_VERSION	"3.4.2"
+#define KSMBD_VERSION	"3.1.9"
 
 extern int ksmbd_debug_types;
 
